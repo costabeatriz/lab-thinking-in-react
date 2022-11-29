@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function ProductRow (props) {
-  
+
   return(
       <tr >
             <td>{props.name}</td>

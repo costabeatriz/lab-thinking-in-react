@@ -1,18 +1,24 @@
 import { useState } from 'react';
-import jsonData from '../data.json';
 
-function SearchBar () {
-  const [checked, setChecked] = useState(false);
+function SearchBar (props) {
+  const { searchProduct } = props;
 
-  return(
+  function handleSearch(e) {
+    searchProduct(e.target.value);
+  }
+
+  return (
+    <>
       <div>
-        <h3>Search</h3>
-        <input type="text"/>
-        <input type="checkbox" id="checkbox" name="checkbox" value="products"/>
-        <label for="products"> Only show products in stock</label>
-
-      </div>    
-  )
+        <p>Search</p>
+        <input type="text" onChange={handleSearch} />
+      </div>
+      <div>
+        <input type="checkbox" />
+        <p>Only show products in stock</p>
+      </div>
+    </>
+  );
 }
 
 export default SearchBar
